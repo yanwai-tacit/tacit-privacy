@@ -48,7 +48,7 @@ code { background:var(--code); padding:1px 5px; border-radius:4px; font:0.92em u
 <li><strong>隐藏用的消息编号</strong>：为了让 ChatGPT 对话里那一问一答不再重新露出来，言外会保存这一问一答的两个消息编号。这里只有编号，没有任何文字。每个对话最多 50 条（刷新时提前隐藏用）和 400 条（已删除的卡片用），最多记录 100 个对话。</li>
 </ul>
 <h3>2.2 chatgpt.com 页面自己的浏览器存储</h3>
-<p>下面两项存放在 chatgpt.com 页面自己的存储区域，不属于扩展存储，也不会被上传：</p>
+<p>下面两项存放在 chatgpt.com 页面自己的浏览器存储区域，不属于扩展存储。言外不会将它们上传至开发者服务器：</p>
 <ul>
 <li><strong>笔的选择</strong>（一个很小的选项值）：保存在页面的 <code>localStorage</code> 中。</li>
 <li><strong>划选和框选的临时轨迹</strong>：保存在当前标签页的 <code>sessionStorage</code> 中，关闭这个标签页就会清除。内容包括鼠标坐标、元素类名、消息编号，以及你框选内容的前 120 个字符。</li>
