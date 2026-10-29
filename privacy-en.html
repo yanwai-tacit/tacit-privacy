@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Tacit Privacy Policy</title>
+<style>
+:root { --bg:#fbfbfa; --text:#1f2328; --muted:#5b6470; --line:#e3e5e8; --card:#ffffff; --link:#2f5fb3; --code:#f1f2f4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#16181b; --text:#e6e8eb; --muted:#9aa3ad; --line:#2b3036; --card:#1d2024; --link:#8ab4f8; --code:#262a2f; } }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 system-ui,-apple-system,'Segoe UI','Microsoft YaHei','PingFang SC',sans-serif; }
+main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:1.7rem; line-height:1.3; margin:8px 0 12px; }
+h2 { font-size:1.2rem; line-height:1.4; margin:36px 0 8px; padding-top:20px; border-top:1px solid var(--line); }
+h3 { font-size:1.02rem; margin:22px 0 6px; }
+p { margin:10px 0; }
+ul { margin:8px 0 8px; padding-left:1.4em; }
+li { margin:6px 0; }
+a { color:var(--link); }
+code { background:var(--code); padding:1px 5px; border-radius:4px; font:0.92em ui-monospace,SFMono-Regular,Consolas,monospace; word-break:break-all; }
+.meta { color:var(--muted); font-size:0.94rem; }
+.top { display:flex; justify-content:space-between; gap:12px; font-size:0.94rem; margin-bottom:8px; }
+.choices { display:grid; gap:12px; margin-top:28px; }
+.choice { display:block; padding:18px 20px; background:var(--card); border:1px solid var(--line); border-radius:12px; text-decoration:none; color:var(--text); }
+.choice strong { display:block; font-size:1.1rem; color:var(--link); }
+.choice span { color:var(--muted); font-size:0.94rem; }
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a href="index.html">← Back</a><a href="privacy-zh.html">中文</a></div>
+<h1>Tacit Privacy Policy</h1>
+<p class="meta">Last updated: 2026-10-29. Applies to version 0.1.x.</p>
+<p class="meta">Contact email: <a href="mailto:cadoin9@gmail.com">cadoin9@gmail.com</a></p>
+<h2>In one sentence</h2>
+<p>Tacit keeps your data only in your own browser. It is not uploaded to the developer's server, and there are no analytics and no ads. When you tap a quick question, the text you selected and the question are sent to ChatGPT as one message, exactly as if you had typed it yourself.</p>
+<h2>1. Where Tacit runs</h2>
+<p>Only on <code>https://chatgpt.com/*</code>. It does not read any other website. The extension asks for one permission: "storage".</p>
+<h2>2. What is stored on your device</h2>
+<h3>2.1 Extension storage (<code>chrome.storage.local</code>)</h3>
+<p>Kept only in this browser on this computer. It is not synced elsewhere and is not uploaded to the developer's server.</p>
+<ul>
+<li><strong>Note records:</strong> the text you selected or framed (for a framed area, the text inside it is saved in full) plus roughly 32 to 48 characters of surrounding text, used to find its position again after the page reloads; where that text sits on the page; your question; the IDs of the ChatGPT conversation and messages it belongs to; and the style of the card and its connector line.</li>
+<li><strong>Answer records:</strong> for each question, the first 100 characters of the answer (nothing beyond that), the related message IDs, and whether the answer was complete. They let a card be matched with its answer again after a reload. At most 300 are kept. Tacit does not save complete answers; the full text a card shows is read from the ChatGPT page.</li>
+<li><strong>Settings:</strong> the state of the three switches, the quick questions you wrote (up to 6, each up to 60 characters), whether notes are shown or hidden, and tool settings.</li>
+<li><strong>Message IDs used for hiding:</strong> so that a question and answer you asked through Tacit do not reappear in the ChatGPT thread, Tacit keeps the two message IDs of that exchange. These are IDs only, with no text. Up to 50 per conversation (hiding it early on reload) and up to 400 per conversation (for cards you deleted), across at most 100 conversations.</li>
+</ul>
+<h3>2.2 The chatgpt.com page's own browser storage</h3>
+<p>These two items live in the storage area of the chatgpt.com page itself. They are not part of the extension's storage and are not uploaded:</p>
+<ul>
+<li><strong>Your pen choice</strong> (one small option value): kept in the page's <code>localStorage</code>.</li>
+<li><strong>A temporary trace of selecting and framing:</strong> kept in the current tab's <code>sessionStorage</code> and cleared when you close the tab. It contains mouse coordinates, element class names, message IDs, and the first 120 characters of the content you framed.</li>
+</ul>
+<p>Note: both belong to the chatgpt.com site's storage, and the scripts of that page can technically read storage of the same site.</p>
+<h3>2.3 Developer diagnostics</h3>
+<p>Off by default and not part of the normal interface. A developer can use a dedicated debug page to export the temporary trace above to a local file. This happens only when the operator chooses to, and nothing is uploaded anywhere.</p>
+<h2>3. What is sent to ChatGPT</h2>
+<p>When you tap a quick question (or one you wrote yourself):</p>
+<ul>
+<li>The text you selected (at most 300 characters) and the question are put into ChatGPT's own input box and sent with ChatGPT's own Send button, exactly as if you had typed them.</li>
+<li>The message includes a short fixed instruction (for example, asking for a brief answer) and, at its end, a very short random marker such as <code>〔q7k3a9x〕</code>, which lets Tacit recognize that message on the page.</li>
+<li>That message and ChatGPT's answer become part of your ChatGPT conversation and are handled by OpenAI under its own terms and privacy policy. Tacit does not control that part.</li>
+<li>The answer is written in the language of your browser's interface, not the language of the selected text.</li>
+<li>Please do not select sensitive content you do not want to send to ChatGPT and then tap a quick question.</li>
+</ul>
+<p>Tacit does not call any model API and has no server of its own.</p>
+<h2>4. Page content Tacit reads</h2>
+<p>To show the answer in a card and hide the quick Q&amp;A from the original conversation, Tacit reads the messages and answers on the ChatGPT page in your browser, including an answer while it is being generated. This is processed only in your device's memory and is not sent to the developer or any third party.</p>
+<h2>5. Your controls and deleting data</h2>
+<ul>
+<li><strong>Hide:</strong> turn off "Show notes" in the popup and the toolbar, cards and lines on the page are hidden. Nothing is deleted; turn it back on and they return.</li>
+<li><strong>Delete one card:</strong> use the trash tool in the toolbar, then click the card. This deletes the card's note record (the selected and surrounding text, your question, its position), its answer record and related records. To keep that exchange hidden, its two message IDs are kept (IDs only).</li>
+<li><strong>Uninstall the extension:</strong> this clears everything in extension storage, including those message IDs. The pen option value in the chatgpt.com page's storage is not removed automatically on uninstall; clearing the chatgpt.com site data removes it.</li>
+<li><strong>Tacit never deletes messages in your ChatGPT conversations.</strong> To delete them, do so in ChatGPT. When you delete a whole conversation in ChatGPT, Tacit's records for it are not removed automatically. Delete those cards with the trash tool first, or uninstall the extension.</li>
+<li>Tacit currently has no "clear all data" button.</li>
+</ul>
+<h2>6. What Tacit does not do</h2>
+<ul>
+<li>It does not upload your notes, questions or answers to the developer's server (there is no such server). What goes to ChatGPT when you tap a quick question is described in section 3.</li>
+<li>It collects no analytics, uses no ads or third-party analytics, and does not sell or share your data.</li>
+<li>It does not load remote code.</li>
+<li>It does not read any website other than chatgpt.com.</li>
+<li>It currently has no accounts, payments or cloud features.</li>
+</ul>
+<h2>7. Changes</h2>
+<p>If accounts, payments or cloud features are added later, this policy will be updated first and the store description will say so. The destination of your data will not be changed quietly.</p>
+<h2>8. About Tacit</h2>
+<p>Tacit is an independent third-party tool and is not affiliated with OpenAI. For questions about this policy, contact: <a href="mailto:cadoin9@gmail.com">cadoin9@gmail.com</a></p>
+</main>
+</body>
+</html>
